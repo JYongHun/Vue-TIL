@@ -3,12 +3,14 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import HelloWorld from '/@components/HelloWorld.vue'
 import VBindVModelTest from '/@components/VBindVModelTest.vue'
+import VIf from '/@components/VIf.vue'
 </script>
 
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg1="Hello Vue 3 + Vite" msg2="Test999"/>
   <VBindVModelTest />
+  <VIf />
 </template>
 
 <style>
