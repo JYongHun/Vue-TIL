@@ -7,6 +7,15 @@ defineProps({
 })
 
 const count1 = ref(0)
+const count2 = ref(0)
+
+
+const onClick = (evt) => {
+  if (evt) {
+    evt.preventDefault();
+    count2.value++
+  }
+}
 </script>
 
 <template>
@@ -29,6 +38,7 @@ const count1 = ref(0)
   </p>
 
   <button type="button" @click="count1++">count is: {{ count1 }}</button>
+  <button type="button" @click="onClick">count is: {{ count2 }}</button>
   <p>
     Edit
     <code>components/HelloWorld.vue</code> to test hot module replacement.
