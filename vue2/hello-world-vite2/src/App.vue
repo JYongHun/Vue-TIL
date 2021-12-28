@@ -6,6 +6,8 @@ import VBindVModelTest from '/@components/VBindVModelTest.vue'
 import VIf from '/@components/VIf.vue'
 import VFor from '/@components/VFor.vue'
 import Computed from '/@components/Computed.vue'
+import WatchWatchEffect from '/@components/WatchWatchEffect.vue'
+
 </script>
 
 <template>
@@ -21,6 +23,7 @@ import Computed from '/@components/Computed.vue'
   <hr>
   <Computed />
   <hr>
+  <WatchWatchEffect />
 </template>
 
 <style>
