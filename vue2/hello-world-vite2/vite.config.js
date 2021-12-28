@@ -26,15 +26,6 @@ export default defineConfig({
   plugins: [vue()]
 })
 
-const path = require('path')
-
-module.exports = {
-  alias: {
-    '/@': path.resolve(__dirname, './src'),
-    '/@components/': path.resolve(__dirname, './src/compoents')
-  }
-}
-
 
 // 기본 생성 코드
 // import { defineConfig } from 'vite'
