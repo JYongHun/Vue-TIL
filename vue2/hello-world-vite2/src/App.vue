@@ -11,7 +11,7 @@ import VFor from '/@components/VFor.vue'
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg1="Hello Vue 3 + Vite" msg2="Test999"/>
   <VBindVModelTest />
-  
+  <VIf />
   <VFor />
 </template>
 
