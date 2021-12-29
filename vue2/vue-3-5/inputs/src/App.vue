@@ -24,8 +24,18 @@
   <select v-model="result.country">
     <option v-for="country in country_options" :key="country">
       {{ country }}
-    </option></select
-  ><br />
+    </option></select><br />
+  
+  <label>날짜 : </label>
+  <input type="date" v-model="result.date"/><br />
+  <label>시간 : </label>
+  <input type="time" v-model="result.time"/><br />
+  <label>색깔 : </label>
+  <input type="color" v-model="result.color"/><br />
+  <label>범위 : </label>
+  <input type="range" min="1" max="100" v-model="result.range"/>
+
+    <br />
   <div>
     <h3>결과</h3>
     <hr />
@@ -45,6 +55,12 @@ export default {
     const country = '한국'
     const country_options = ['한국', '미국', '중국']
     const hobby_options = ['스포츠', '그림', '음악', '코딩']
+
+    const date = ''
+    const time = ''
+    const color = ''
+    const range = ''
+
     const result = reactive({
       name,
       age,
@@ -52,6 +68,10 @@ export default {
       hobby,
       password,
       country,
+      date,
+      time,
+      color,
+      range
     })
     return {
       result,
