@@ -1,5 +1,6 @@
 <template>
-  <button v-bind="$attrs" :type="type" :class="classes" ref="button">
+  <button v-bind="$attrs" :type="type" :class="classes" ref="button"
+    v-on="type == 'switch' ? { click: onClick } : {}" >
     <slot></slot>
   </button>
 </template>
@@ -11,7 +12,8 @@ export default {
     type: {
       default: 'button',
       validator: (value) => {
-        const allowed = ['button', 'submit', 'reset']
+        // 실전 연습 - switch 추가
+        const allowed = ['button', 'submit', 'reset', 'switch']
         return allowed.includes(value)
       },
     },
@@ -22,15 +24,35 @@ export default {
     },
     lg: Boolean,
     pill: Boolean,
+    // 실전 연습 - swtich 값 추가
+    active: {
+      type: Boolean,
+      default: true,
+    },
   },
+  emits: ['update:active'],
   setup(props, context) {
-    const classes = []
+    const classes = ref([])
     const button = ref(null)
+    const active = ref(props.active)
     // Props 로 처리되는 변수들
-    if (props.sm) classes.push('sm')
-    else if (props.lg) classes.push('lg')
-    else classes.push('md')
-    if (props.pill) classes.push('pill')
+    if (props.sm) classes.value.push('sm')
+    else if (props.lg) classes.value.push('lg')
+    else classes.value.push('md')
+    if (props.pill) classes.value.push('pill')
+    // swtich 를 위한 Props
+    const changeBrightness = () => {
+      if (props.type == 'switch') {
+        if (!active.value) classes.value.push('deactive')
+        else classes.value = classes.value.filter((i) => i != 'deactive')
+      }
+    }
+    changeBrightness()
+    const onClick = () => {
+      active.value = !active.value
+      changeBrightness()
+      context.emit('update:active', active.value)
+    }
     onMounted(() => {
       // Non-props 로 처리되는 변수들
       Object.keys(context.attrs).forEach((attr) => {
@@ -45,6 +67,7 @@ export default {
     return {
       classes,
       button,
+      onClick,
     }
   },
 }
@@ -68,5 +91,8 @@ button {
 }
 .pill {
   border-radius: 16px;
+}
+.deactive {
+  filter: brightness(50%);
 }
 </style>

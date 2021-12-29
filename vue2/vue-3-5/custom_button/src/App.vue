@@ -13,6 +13,10 @@
   <MyButton lg pill @click.prevent="onClick">button</MyButton>
   <br>
   
+  <br>
+  <MyButton type="switch" backgroun-blue text-white v-model:active="active1">SWITCH</MyButton>
+  <br>
+
 </template>
 
 <script>
