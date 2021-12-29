@@ -8,7 +8,8 @@
     <tr v-for="row, row_index) in rows" :key="'row-' + row_index">
       <td v-for="(data, data_index) in row"
         :key="'data-' + data_index"
-        :colspan="data.colspan || 1">
+        :colspan="data.colspan || 1"
+        :rowspan="data.rowspan || 1">
         {{data.data}}
       </td>
     </tr>

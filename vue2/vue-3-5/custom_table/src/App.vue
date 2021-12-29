@@ -13,6 +13,10 @@ export default {
       rows: [
         [{data: '1번 내용'} , {data: '2번 내용'}],
         [{data:'1번 내용222', colspan: 2}],
+        [{data: '1번 내용3', rowspan: 3}, {data :'2번내용3'}],
+        [{data: '2번내용4'}],
+        [{data: '2번내용55'}],
+        [{data: '1번내용66', colspan:2}],
       ],
     }
   },
